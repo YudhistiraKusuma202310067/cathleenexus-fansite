@@ -1,0 +1,73 @@
+.landing {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* konten tetap tengah */
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 800px; /* biar proporsional */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.carousel-img.active {
+  opacity: 1;
+}
+
+.landing-question {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 28px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn-yes,
+.btn-no {
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+.btn-yes {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-no {
+  background-color: #eee;
+  color: #333;
+}
+
+.btn-yes:hover {
+  background-color: #5a4bbd;
+}
+
+.btn-no:hover {
+  background-color: #ddd;
+}

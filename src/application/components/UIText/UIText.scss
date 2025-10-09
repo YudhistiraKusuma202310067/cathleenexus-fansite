@@ -1,0 +1,8 @@
+.ui-text {
+  margin: 0;
+  font-weight: 400;
+
+  &.text-purple {
+    color: var(--color-primary);
+  }
+}

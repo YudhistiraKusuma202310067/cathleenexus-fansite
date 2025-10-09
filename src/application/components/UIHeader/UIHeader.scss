@@ -1,0 +1,37 @@
+.ui-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 12px 24px;
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  position: relative; /* ✅ tambahin baris ini */
+}
+
+.ui-header__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ui-header__logo {
+  height: 36px;
+  width: auto;
+}
+
+.ui-header__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ui-header__hashtag {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
