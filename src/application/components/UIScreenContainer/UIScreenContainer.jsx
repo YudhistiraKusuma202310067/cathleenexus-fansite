@@ -2,14 +2,16 @@ const UIScreenContainer = ({ children }) => {
   return (
     <main
       style={{
-        width: "100%",
+        width: "100vw",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        alignItems: "stretch", // ❗ biar full-width
-        justifyContent: "flex-start", // ❗ biar ga ketengah semua
-        padding: 0,
+        alignItems: "stretch",
+        justifyContent: "flex-start",
         margin: 0,
+        padding: 0,
+        backgroundColor: "#fff",
+        overflowX: "hidden",
       }}
     >
       {children}

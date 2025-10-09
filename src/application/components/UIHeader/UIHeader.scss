@@ -10,27 +10,17 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  position: relative; /* ✅ tambahin baris ini */
-}
-
-.ui-header__left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
 }
 
 .ui-header__logo {
-  height: 36px;
+  height: 42px;
   width: auto;
+  display: block;
+  object-fit: contain;
 }
 
-.ui-header__title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.ui-header__hashtag {
+.ui-header__hashtag { 
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;

@@ -1,4 +1,5 @@
 import UIText from "../UIText/UIText";
+import logoNexus from "../../../assets/Logo/logo-cathleenexus.png";
 import "./UIHeader.scss";
 
 const UIHeader = () => {
@@ -6,11 +7,10 @@ const UIHeader = () => {
     <header className="ui-header">
       <div className="ui-header__left">
         <img
-          src="/logo.png"
-          alt="Cathleenexus Logo"
+          src={logoNexus}
+          alt="Nexus Logo"
           className="ui-header__logo"
         />
-        <UIText className="ui-header__title">Cathleenexus</UIText>
       </div>
 
       <div className="ui-header__right">

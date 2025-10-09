@@ -5,9 +5,9 @@ import UIText from "../components/UIText/UIText";
 import UIScreenContainer from "../components/UIScreenContainer/UIScreenContainer";
 
 const photos = [
-  "/cathy1.jpg",
-  "/cathy2.jpg",
-  "/cathy3.jpg",
+  "https://i.pinimg.com/1200x/27/4e/7d/274e7d7eaf934eb0e08530eba8a81012.jpg",
+  "https://i.pinimg.com/1200x/d9/d3/49/d9d349e43cf895a32ededb7dcc8e4b12.jpg",
+  "https://i.pinimg.com/736x/cb/39/80/cb398033dffb9b5db6a0436d2e7b553d.jpg",
 ];
 
 const LandingPage = () => {
