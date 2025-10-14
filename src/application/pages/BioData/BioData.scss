@@ -24,21 +24,36 @@
     margin-bottom: 1rem;
   }
 
+  /* ======================
+     IMAGE CONTAINER + FADE
+     ====================== */
   &__image-container {
+    position: relative;
+    width: 330px;
+    height: 440px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 480px;
+    margin: 0 auto;
   }
 
   &__image {
-    width: 330px;
-    height: 440px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 1.2rem;
     object-fit: cover;
     border: 3px solid var(--color-secondary);
     box-shadow: 0 8px 30px rgba(67, 56, 120, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &.active {
+      opacity: 1;
+      z-index: 2;
+    }
 
     &:hover {
       transform: scale(1.02);
@@ -137,9 +152,21 @@
       transform: translateY(0);
     }
   }
+
+  /* --- Animations --- */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
-/* UIText Variants */
+/* --- UIText Variants --- */
 .ui-text {
   &--welcome-main {
     font-size: 1.5rem;
@@ -189,19 +216,7 @@
   }
 }
 
-/* Animations */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Responsive */
+/* --- Responsive Design --- */
 @media (max-width: 1024px) {
   .bio-data-page {
     &__content {
@@ -212,6 +227,7 @@
     &__image-container {
       order: 1;
       height: 400px;
+      width: 300px;
     }
 
     .ui-text {
@@ -233,6 +249,7 @@
 
     &__image-container {
       height: 350px;
+      width: 260px;
     }
 
     .ui-text {

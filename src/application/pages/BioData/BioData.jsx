@@ -1,6 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import cathleenPic from "../../../assets/BioData/cathleen.jpeg";
+import cathleenPic1 from "../../../assets/BioData/cathleenPic1.jpeg";
+import cathleenPic2 from "../../../assets/BioData/cathleenPic2.jpeg";
+import cathleenPic3 from "../../../assets/BioData/cathleenPic3.jpeg";
+import cathleenPic4 from "../../../assets/BioData/cathleenPic4.jpeg";
+import cathleenPic5 from "../../../assets/BioData/cathleenPic5.jpeg";
+import cathleenPic6 from "../../../assets/BioData/cathleenPic6.jpeg";
+import cathleenPic7 from "../../../assets/BioData/cathleenPic7.jpeg";
+import cathleenPic8 from "../../../assets/BioData/cathleenPic8.jpeg";
+import cathleenPic9 from "../../../assets/BioData/cathleenPic9.jpeg";
+
 import "./BioData.scss";
 import UIHeader from "../../components/UIHeader/UIHeader";
 import UIText from "../../components/UIText/UIText";
@@ -10,6 +19,16 @@ import UIScreenContainer from "../../components/UIScreenContainer/UIScreenContai
 const BioData = () => {
   const [bioData, setBioData] = useState({});
   const navigate = useNavigate();
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [cathleenPic1, cathleenPic2, cathleenPic3, cathleenPic4, cathleenPic5,cathleenPic6,cathleenPic7,cathleenPic8,cathleenPic9];
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  }, 5000);
+  return () => clearInterval(interval);
+}, [])     
+
 
   useEffect(() => {
     const data = {
@@ -26,6 +45,7 @@ const BioData = () => {
     setBioData(data);
   }, []);
 
+
   return (
     <UIScreenContainer>
       <UIHeader />
@@ -41,13 +61,15 @@ const BioData = () => {
 
             {/* Profile Image Placeholder */}
             <div className="bio-data-page__image-container">
-            <img
-                src={cathleenPic}
-                alt="Cathleen Nixie"
-                className="bio-data-page__image"
-            />
-            </div>
-
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Cathleen Nixie ${index + 1}`}
+                className={`bio-data-page__image ${index === currentImage ? "active" : ""}`}
+              />
+            ))}
+          </div>
           </div>
 
           {/* Right Section - Biodata */}

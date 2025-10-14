@@ -27,9 +27,9 @@ const UIHeader = () => {
 
         <UIText
           className="ui-header__link"
-          onClick={() => navigate("/gallery")}
+          onClick={() => navigate("/teaterActivity")}
         >
-          Gallery
+         Teater Activity
         </UIText>
 
         <UIText
