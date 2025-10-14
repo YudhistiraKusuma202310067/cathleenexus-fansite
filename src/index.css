@@ -43,8 +43,10 @@ div[style*="overflow: hidden"] {
 }
 
 :root {
-  --color-primary: #433878;
-  --color-secondary: #e4b1f0;
-  --color-accent: #08a8ff;
-  --color-background: #ffffff;
+  --color-primary: #433878; /* deep purple */
+  --color-secondary: #e4b1f0; /* lavender */
+  --color-accent: #08a8ff; /* biru cerah */
+  --color-background: #ffffff; /* putih */
+  --color-muted: rgba(67, 56, 120, 0.05); /* soft purple background */
+  --color-border: rgba(67, 56, 120, 0.2);
 }

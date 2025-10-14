@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LandingPage.scss";
-import UIHeader from "../components/UIHeader/UIHeader";
-import UIText from "../components/UIText/UIText";
-import UIScreenContainer from "../components/UIScreenContainer/UIScreenContainer";
+import "./MainPage.scss";
+import UIHeader from "../../components/UIHeader/UIHeader";
+import UIText from "../../components/UIText/UIText";
+import UIScreenContainer from "../../components/UIScreenContainer/UIScreenContainer";
 
 const photos = [
   "https://i.pinimg.com/1200x/27/4e/7d/274e7d7eaf934eb0e08530eba8a81012.jpg",
@@ -11,7 +11,7 @@ const photos = [
   "https://i.pinimg.com/736x/cb/39/80/cb398033dffb9b5db6a0436d2e7b553d.jpg",
 ];
 
-const LandingPage = () => {
+const MainPage = () => {
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
 
@@ -56,4 +56,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default MainPage;

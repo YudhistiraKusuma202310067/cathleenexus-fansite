@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import cathleenPic from "../../assets/BioData/cathleen.jpeg";
+import cathleenPic from "../../../assets/BioData/cathleen.jpeg";
 import "./BioData.scss";
-import UIHeader from "../components/UIHeader/UIHeader";
-import UIText from "../components/UIText/UIText";
-import UIScreenContainer from "../components/UIScreenContainer/UIScreenContainer";
+import UIHeader from "../../components/UIHeader/UIHeader";
+import UIText from "../../components/UIText/UIText";
+import UIScreenContainer from "../../components/UIScreenContainer/UIScreenContainer";
 
 
 const BioData = () => {

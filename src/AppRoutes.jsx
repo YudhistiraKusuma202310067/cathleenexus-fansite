@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import LandingPage from "./application/pages/LandingPage";
-import BioData from "./application/pages/BioData"; // ✅ import BioData page
+import MainPage from "./application/pages/MainPage/MainPage";
+import BioData from "./application/pages/BioData/BioData";
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<MainPage />} />
       <Route path="/biodata" element={<BioData />} /> {/* ✅ new route */}
     </Routes>
   );

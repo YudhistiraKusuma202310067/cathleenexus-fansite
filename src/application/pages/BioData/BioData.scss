@@ -1,6 +1,6 @@
 .bio-data-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fef5e7 0%, #fdeef4 100%);
+  background: var(--color-background);
   padding: 2rem;
 
   &__content {
@@ -12,6 +12,7 @@
     align-items: center;
   }
 
+  /* Left Section */
   &__left {
     display: flex;
     flex-direction: column;
@@ -27,43 +28,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 480px;
   }
 
   &__image {
-    width: 350px;
-    height: 450px;
-    border-radius: 1.5rem;
+    width: 330px;
+    height: 440px;
+    border-radius: 1.2rem;
     object-fit: cover;
-    border: 4px solid #f8b6ff;
-    box-shadow: 0 10px 25px rgba(248, 182, 255, 0.5);
+    border: 3px solid var(--color-secondary);
+    box-shadow: 0 8px 30px rgba(67, 56, 120, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 40px rgba(248, 182, 255, 0.7);
+      transform: scale(1.02);
+      box-shadow: 0 12px 40px rgba(67, 56, 120, 0.3);
     }
-}
+  }
 
+  /* Right Section */
   &__right {
     display: flex;
     justify-content: center;
   }
 
   &__card {
-    background: white;
-    border: 3px solid #4a3728;
+    background: var(--color-background);
+    border: 1.5px solid var(--color-border);
     border-radius: 1rem;
     padding: 2.5rem;
     max-width: 450px;
-    box-shadow: 0 10px 40px rgba(74, 55, 40, 0.15);
+    box-shadow: 0 10px 25px rgba(67, 56, 120, 0.08);
     animation: slideIn 0.6s ease-out;
   }
 
   &__card-header {
     text-align: right;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #f0e6f6;
+    border-bottom: 1px solid var(--color-border);
     padding-bottom: 1rem;
   }
 
@@ -79,7 +81,7 @@
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid #f0e6f6;
+    border-bottom: 1px solid var(--color-border);
     transition: all 0.3s ease;
 
     &:last-of-type {
@@ -87,25 +89,25 @@
     }
 
     &:hover {
+      background: var(--color-muted);
       padding-left: 0.5rem;
-      background: rgba(255, 128, 171, 0.05);
     }
   }
 
   &__icon {
-    font-size: 1.5rem;
-    min-width: 1.5rem;
-    text-align: center;
+    font-size: 1.3rem;
+    color: var(--color-primary);
   }
 
   &__quote {
-    background: #f9f5f0;
+    background: var(--color-muted);
     padding: 1.5rem;
     border-radius: 0.75rem;
-    border-left: 4px solid #ff80ab;
+    border-left: 4px solid var(--color-accent);
     margin-bottom: 2rem;
     font-style: italic;
     text-align: right;
+    color: var(--color-text);
   }
 
   &__button-container {
@@ -115,8 +117,8 @@
 
   &__btn-back {
     flex: 1;
-    background: #4a3728;
-    color: white;
+    background: var(--color-primary);
+    color: #fff;
     border: none;
     padding: 0.9rem 1.5rem;
     border-radius: 2rem;
@@ -126,9 +128,9 @@
     font-size: 0.95rem;
 
     &:hover {
-      background: #3d2e21;
+      background: #372c6a;
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(74, 55, 40, 0.3);
+      box-shadow: 0 4px 15px rgba(67, 56, 120, 0.3);
     }
 
     &:active {
@@ -137,18 +139,18 @@
   }
 }
 
-// UIText variants for this page
+/* UIText Variants */
 .ui-text {
   &--welcome-main {
     font-size: 1.5rem;
-    color: #4a3728;
+    color: var(--color-primary);
     font-weight: 400;
     letter-spacing: 1px;
   }
 
   &--welcome-highlight {
-    font-size: 3.5rem;
-    color: #c97e46;
+    font-size: 3.2rem;
+    color: var(--color-secondary);
     font-weight: 700;
     font-style: italic;
     margin-bottom: 0.5rem;
@@ -156,38 +158,38 @@
 
   &--welcome-sub {
     font-size: 1.25rem;
-    color: #4a3728;
+    color: var(--color-primary);
     font-weight: 500;
-    letter-spacing: 0.5px;
   }
 
   &--card-title {
     font-size: 2rem;
-    color: #c97e46;
+    color: var(--color-secondary);
     font-weight: 700;
     font-style: italic;
   }
 
   &--card-subtitle {
     font-size: 2.5rem;
-    color: #4a3728;
+    color: var(--color-primary);
     font-weight: 700;
   }
 
   &--info-text {
     font-size: 1rem;
-    color: #4a3728;
+    color: var(--color-text);
     font-weight: 500;
   }
 
   &--quote-text {
     font-size: 1rem;
-    color: #4a3728;
+    color: var(--color-text);
     line-height: 1.6;
     font-weight: 500;
   }
 }
 
+/* Animations */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -199,6 +201,7 @@
   }
 }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .bio-data-page {
     &__content {
@@ -206,18 +209,8 @@
       gap: 2rem;
     }
 
-    &__welcome {
-      order: 2;
-    }
-
     &__image-container {
       order: 1;
-      height: 400px;
-    }
-
-    &__image-placeholder {
-      width: 100%;
-      max-width: 350px;
       height: 400px;
     }
 
@@ -238,7 +231,7 @@
       max-width: 100%;
     }
 
-    &__image-placeholder {
+    &__image-container {
       height: 350px;
     }
 
@@ -264,5 +257,4 @@
       }
     }
   }
-  
 }
