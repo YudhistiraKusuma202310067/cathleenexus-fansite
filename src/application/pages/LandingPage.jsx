@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LandingPage.scss";
 import UIHeader from "../components/UIHeader/UIHeader";
 import UIText from "../components/UIText/UIText";
@@ -12,8 +13,9 @@ const photos = [
 
 const LandingPage = () => {
   const [current, setCurrent] = useState(0);
+  const navigate = useNavigate();
 
-  // auto-slide carousel setiap 3 detik
+  // Auto-slide carousel setiap 3 detik
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % photos.length);
@@ -44,7 +46,9 @@ const LandingPage = () => {
 
         {/* Tombol aksi */}
         <div className="landing-buttons">
-          <button className="btn-yes">Kenal banget dong</button>
+          <button className="btn-yes" onClick={() => navigate("/biodata")}>
+            Kenal banget dong
+          </button>
           <button className="btn-no">Belum kenal nih</button>
         </div>
       </div>

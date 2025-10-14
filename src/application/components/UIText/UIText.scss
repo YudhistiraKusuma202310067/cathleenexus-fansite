@@ -1,8 +1,16 @@
 .ui-text {
-  margin: 0;
-  font-weight: 400;
+  &--title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-  &.text-purple {
-    color: var(--color-primary);
+  &--label {
+    font-weight: 600;
+    color: #555;
+  }
+
+  &--body {
+    font-size: 1rem;
+    color: #333;
   }
 }
