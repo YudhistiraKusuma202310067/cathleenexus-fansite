@@ -164,3 +164,17 @@
     height: 240px;
   }
 }
+/* ✨ Make titles clickable */
+.teater-subtitle.clickable {
+  cursor: pointer;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.teater-subtitle.clickable:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  transform: translateY(-3px);
+}
+
