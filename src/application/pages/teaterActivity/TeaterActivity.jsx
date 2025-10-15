@@ -1,79 +1,39 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./TeaterActivity.scss";
-import UIHeader from "../../components/UIHeader/UIHeader";
-import UIText from "../../components/UIText/UIText";
 import UIScreenContainer from "../../components/UIScreenContainer/UIScreenContainer";
 
 const TeaterActivity = () => {
+  const navigate = useNavigate();
+
   return (
-       <UIScreenContainer>
-      <UIHeader />
-    <div className="teater-container">
-      <h1 className="teater-title">Cathy JKT48 Activity</h1>
+    <UIScreenContainer>
+      <div className="teater-container">
+        <h1 className="teater-title">Cathy JKT48 Activity</h1>
 
-      <div className="teater-grid">
-        <div className="teater-card">
-          <img
-            src="src\assets\TeaterActivity\cathy-show.jpeg" 
-            alt="Jadwal Teater Show"
-            className="teater-image"
-          />
-          <h2 className="teater-subtitle">Jadwal Teater Show</h2>
-          <button className="teater-button">Klik di sini</button>
-        </div>
-
-        <div className="teater-card">
-          <img
-            src="src\assets\TeaterActivity\cathy-videocall.jpeg"
-            alt="Jadwal Video Call"
-            className="teater-image"
-          />
-          <h2 className="teater-subtitle">Jadwal Video Call</h2>
-          <button className="teater-button">Klik di sini</button>
-        </div>
-
-        <div className="teater-card">
-          <img
-            src="src\assets\TeaterActivity\cathy-mng.jpg"
-            alt="Jadwal Meet and Greet"
-            className="teater-image"
-          />
-          <h2 className="teater-subtitle">Jadwal Meet and Greet</h2>
-          <button className="teater-button">Klik di sini</button>
-        </div>
-
-        <div className="teater-card">
-          <img
-            src="src\assets\TeaterActivity\cathy-2s.jpg"
-            alt="Jadwal 2Shot"
-            className="teater-image"
-          />
-          <h2 className="teater-subtitle">Jadwal 2Shot</h2>
-          <button className="teater-button">Klik di sini</button>
-        </div>
-
-        <div className="teater-card">
-          <img
-            src="src\assets\TeaterActivity\cathy-ofc.jpeg"
-            alt="Jadwal OFC Event"
-            className="teater-image"
-          />
-          <h2 className="teater-subtitle">Jadwal OFC Event</h2>
-          <button className="teater-button">Klik di sini</button>
-        </div>
-
-        <div className="teater-card">
-          <img
-            src="src\assets\TeaterActivity\cathy-offair.jpeg"
-            alt="Jadwal Off-Air"
-            className="teater-image"
-          />
-          <h2 className="teater-subtitle">Jadwal Off-Air</h2>
-          <button className="teater-button">Klik di sini</button>
+        <div className="teater-grid">
+          {[
+            { src: "src/assets/TeaterActivity/cathy-show.jpeg", title: "Jadwal Teater Show" },
+            { src: "src/assets/TeaterActivity/cathy-videocall.jpeg", title: "Jadwal Video Call" },
+            { src: "src/assets/TeaterActivity/cathy-mng.jpg", title: "Jadwal Meet and Greet" },
+            { src: "src/assets/TeaterActivity/cathy-2s.jpg", title: "Jadwal 2Shot" },
+            { src: "src/assets/TeaterActivity/cathy-ofc.jpeg", title: "Jadwal OFC Event" },
+            { src: "src/assets/TeaterActivity/cathy-offair.jpeg", title: "Jadwal Off-Air" },
+          ].map((item, i) => (
+            <div key={i} className="teater-card">
+              <div className="teater-image-wrapper">
+                <img src={item.src} alt={item.title} className="teater-image" />
+              </div>
+              <h2 className="teater-subtitle">{item.title}</h2>
+              <button
+                className="teater-button"
+                onClick={() => navigate("/detail")}
+              >
+                Lihat Detail
+              </button>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
     </UIScreenContainer>
   );
 };

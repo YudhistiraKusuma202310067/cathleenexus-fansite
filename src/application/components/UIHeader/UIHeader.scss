@@ -3,13 +3,14 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-primary);
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 
   &__logo {
-    height: 48px;
+    height: 46px;
+    cursor: pointer;
     transition: transform 0.3s ease;
 
     &:hover {
@@ -21,6 +22,10 @@
     display: flex;
     align-items: center;
     gap: 2.5rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__link {
@@ -29,19 +34,17 @@
     color: var(--color-background);
     cursor: pointer;
     position: relative;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 
     &:hover {
       color: #c97e46;
-      transform: translateY(-2px);
     }
 
-    // underline animation
     &::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -6px;
+      bottom: -5px;
       width: 0%;
       height: 2px;
       background-color: var(--color-background);
@@ -57,25 +60,87 @@
     font-size: 1rem;
     color: var(--color-background);
     font-weight: 700;
-    letter-spacing: 0.5px;
   }
-}
 
-// ✅ Responsive Navbar
-@media (max-width: 768px) {
-  .ui-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 1.5rem;
-    gap: 1rem;
+  &__menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-background);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: transform 0.2s ease;
 
-    &__nav {
-      gap: 1.5rem;
-      flex-wrap: wrap;
+    &:hover {
+      transform: scale(1.1);
     }
 
-    &__link {
-      font-size: 0.95rem;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  /* === Dropdown section === */
+  &__left {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: dropdownFade 0.3s ease forwards;
+    z-index: 2000;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+  }
+
+  &__dropdown-content {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 140px;
+
+    p {
+      color: var(--color-primary);
+      font-weight: 600;
+      margin: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #c97e46;
+      }
+    }
+  }
+
+  @keyframes dropdownFade {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

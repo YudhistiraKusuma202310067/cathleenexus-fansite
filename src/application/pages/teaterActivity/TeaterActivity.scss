@@ -1,128 +1,166 @@
-.teater-container { 
+.teater-container {
   min-height: 100vh;
-  background-color: #f7f4f0;
+  background: linear-gradient(180deg, var(--color-muted), #fff);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px;
-  font-family: 'Georgia', serif;
+  padding: 80px 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .teater-title {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: #2b2b2b;
+  color: var(--color-primary);
   margin-bottom: 60px;
-  letter-spacing: 1px;
   text-align: center;
+  letter-spacing: 1px;
   position: relative;
-}
+  opacity: 0;
+  animation: fadeInDown 1s ease forwards;
 
-.teater-title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #6b4c3b;
-  margin: 16px auto 0;
-  border-radius: 2px;
+  &::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-accent);
+    margin: 14px auto 0;
+    border-radius: 2px;
+  }
 }
 
 .teater-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr)); 
-  gap: 60px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
   width: 100%;
   max-width: 1100px;
+  justify-items: center;
+  animation: fadeIn 1.5s ease forwards;
 }
 
 .teater-card {
-  width: 320px;
-  height: 520px;
+  width: 100%;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(67, 56, 120, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.3s ease;
   cursor: pointer;
-}
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
 
-.teater-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-}
+  &:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(67, 56, 120, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+  }
 
-.teater-image {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.teater-card:hover .teater-image {
-  transform: scale(1.05);
-}
-
-.teater-subtitle {
-  font-size: 1.5rem;
-  color: #2b2b2b;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  text-align: center;
-  font-weight: 600;
-  flex-grow: 0;
-}
-
-.teater-button {
-  background-color: #6b4c3b;
-  color: white;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 9999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: auto; /* pushes the button to the bottom */
-  margin-bottom: 20px;
-}
-
-.teater-button:hover {
-  background-color: #4b3224;
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(75, 50, 36, 0.4);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .teater-grid {
-    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  &:hover .teater-subtitle {
+    color: var(--color-accent);
+    text-shadow: 0 0 8px rgba(8, 168, 255, 0.3);
+    transform: translateY(-4px);
   }
 }
 
+.teater-image-wrapper {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  .teater-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.teater-subtitle {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin: 18px 0 10px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.teater-button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--color-accent);
+    box-shadow: 0 4px 14px rgba(8, 168, 255, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+/* 🌈 Animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .teater-title {
     font-size: 2rem;
   }
 
-  .teater-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .teater-card {
-    width: 90%;
-    height: auto; /* allow flexible height on small screens */
+    max-width: 90%;
   }
 
-  .teater-image {
-    height: 300px;
-  }
-
-  .teater-subtitle {
-    font-size: 1.3rem;
+  .teater-image-wrapper {
+    height: 240px;
   }
 }
