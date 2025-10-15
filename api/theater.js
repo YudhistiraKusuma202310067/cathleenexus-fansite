@@ -1,24 +1,26 @@
-import fetch from "node-fetch";
-import * as cheerio from "cheerio";
-
 export default async function handler(req, res) {
   try {
-    const response = await fetch("https://jkt48.com/calendar/list?lang=id");
-    const html = await response.text();
+    const target = "https://jkt48.com/calendar/list?lang=id";
+    const jinaUrl = "https://r.jina.ai/" + encodeURIComponent(target);
 
-    const $ = cheerio.load(html);
+    const response = await fetch(jinaUrl);
+    const text = await response.text();
+
+    // Ambil semua link show (regex sederhana)
+    const regex = /\/theater\/schedule\/id\/(\d+)[^>]*>([^<]+)<\/a>/g;
     const shows = [];
-
-    $(".entry-schedule__list li a").each((i, el) => {
-      const href = $(el).attr("href");
-      const title = $(el).text().trim();
-      const id = href.match(/id\/(\d+)/)?.[1];
-      if (id) shows.push({ id, title, url: `https://jkt48.com${href}` });
-    });
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      shows.push({
+        id: match[1],
+        title: match[2].trim(),
+        url: `https://jkt48.com/theater/schedule/id/${match[1]}?lang=id`
+      });
+    }
 
     res.status(200).json(shows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Gagal ambil data theater list" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Gagal mengambil data" });
   }
 }
