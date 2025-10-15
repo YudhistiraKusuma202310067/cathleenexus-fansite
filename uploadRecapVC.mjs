@@ -1,4 +1,4 @@
-// uploadOffair.mjs
+// uploadRecapVC.mjs
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, writeBatch, doc } from "firebase/firestore";
 import fs from "fs";
@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ Load Firebase config from environment or config file
+// ✅ Load Firebase config (environment or fallback)
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY || "AIzaSyAYPahY0rA7LYQEIgNKNDDuBw60rfZsuyU",
   authDomain: process.env.FIREBASE_AUTH_DOMAIN || "nexus-web-bc725.firebaseapp.com",
@@ -21,7 +21,7 @@ const firebaseConfig = {
 
 let app, db;
 
-// ✅ Initialize Firebase with error handling
+// ✅ Initialize Firebase
 try {
   app = initializeApp(firebaseConfig);
   db = getFirestore(app);
@@ -35,7 +35,7 @@ try {
 function loadJsonData(filename) {
   try {
     const filePath = path.join(__dirname, filename);
-    
+
     if (!fs.existsSync(filePath)) {
       throw new Error(`File not found: ${filePath}`);
     }
@@ -55,13 +55,14 @@ function loadJsonData(filename) {
   }
 }
 
-// ✅ Validate and clean individual record
+// ✅ Clean and normalize record (UPDATED for new format)
 function cleanRecord(item) {
-  if (!item.Acara || item.Acara.trim() === "") {
-    return null; // Skip invalid records
+  // Skip incomplete data
+  if (!item["Nama Photobook"] || item["Nama Photobook"].trim() === "") {
+    return null;
   }
 
-  // Helper to clean string or return fallback
+  // Helper to safely trim or fallback
   const cleanString = (value, fallback = "-") => {
     if (!value) return fallback;
     const trimmed = String(value).trim();
@@ -69,25 +70,26 @@ function cleanRecord(item) {
   };
 
   return {
-    date: cleanString(item.Tanggal),
-    title: cleanString(item.Acara),
-    location: cleanString(item.Lokasi),
-    type: cleanString(item.Tipe),
-    notes: cleanString(item.Catatan),
-    songs: cleanString(item["LIST SONG"]), // ✅ Keep newlines for song lists
-    imageUrl: cleanString(item.ImageUrl), // ✅ Preserve full URL
-    uploadedAt: new Date().toISOString(), // Track when uploaded
+    no: cleanString(item["No"]),
+    date: cleanString(item["Tanggal - Bulan"]),
+    photobook: cleanString(item["Nama Photobook"]),
+    session: cleanString(item["Sesi"]),
+    totalSession: cleanString(item["Total sesi"]),
+    sessionEntry: cleanString(item["Sesi masuk"]), // 🆕 baru ditambahkan
+    time: cleanString(item["Jam"]), // 🆕 ganti dari "Jam - Sesi" ke "Jam"
+    extra: cleanString(item["Tambahan"]),
+    uploadedAt: new Date().toISOString(),
   };
 }
 
-// ✅ Upload using batched writes (more efficient)
+
+// ✅ Upload using Firestore batched writes (efficient for large data)
 async function uploadWithBatch(data) {
-  const colRef = collection(db, "offairEvents");
-  const BATCH_SIZE = 500; // Firestore limit
+  const colRef = collection(db, "recapVC");
+  const BATCH_SIZE = 500;
   let totalUploaded = 0;
   let totalFailed = 0;
 
-  // Split into batches
   for (let i = 0; i < data.length; i += BATCH_SIZE) {
     const batch = writeBatch(db);
     const batchData = data.slice(i, i + BATCH_SIZE);
@@ -111,39 +113,36 @@ async function uploadWithBatch(data) {
       console.error(`❌ Batch ${Math.floor(i / BATCH_SIZE) + 1} failed:`, err.message);
     }
 
-    // Small delay to avoid rate limiting
+    // Small delay between batches to avoid throttling
     if (i + BATCH_SIZE < data.length) {
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((r) => setTimeout(r, 100));
     }
   }
 
   return { totalUploaded, totalFailed };
 }
 
-// ✅ Upload one-by-one (alternative method)
+// ✅ Alternative: Upload one by one (useful for debugging)
 async function uploadIndividually(data) {
-  const colRef = collection(db, "offairEvents");
+  const colRef = collection(db, "recapVC");
   let totalUploaded = 0;
   let totalFailed = 0;
 
   for (let i = 0; i < data.length; i++) {
-    const item = data[i];
-    const cleanItem = cleanRecord(item);
-    
+    const cleanItem = cleanRecord(data[i]);
     if (!cleanItem) continue;
 
     try {
       await addDoc(colRef, cleanItem);
       totalUploaded++;
-      console.log(`✅ [${i + 1}/${data.length}] Uploaded: ${cleanItem.title}`);
+      console.log(`✅ [${i + 1}/${data.length}] Uploaded: ${cleanItem.photobook}`);
     } catch (err) {
       totalFailed++;
-      console.error(`❌ [${i + 1}/${data.length}] Failed: ${cleanItem.title}`, err.message);
+      console.error(`❌ [${i + 1}/${data.length}] Failed: ${cleanItem.photobook}`, err.message);
     }
 
-    // Rate limiting: small delay every 10 records
     if ((i + 1) % 10 === 0) {
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((r) => setTimeout(r, 100));
     }
   }
 
@@ -151,18 +150,16 @@ async function uploadIndividually(data) {
 }
 
 // ✅ Main upload function
-async function uploadOffair() {
-  console.log("🚀 Starting upload process...\n");
+async function uploadRecapVC() {
+  console.log("🚀 Starting upload process for Recap VC...\n");
 
   const startTime = Date.now();
-  
-  // Use the exact filename in your directory
-  const filename = "\offairrecap.json"; // Change this to match your actual file
+
+  const filename = "\RecapVCCat.json"; // ⚙️ Adjust file path if needed
   const rawData = loadJsonData(filename);
 
-  // Choose upload method (batched is more efficient)
-  const useBatch = process.env.USE_BATCH !== "false"; // Default to batch
-  
+  const useBatch = process.env.USE_BATCH !== "false";
+
   const { totalUploaded, totalFailed } = useBatch
     ? await uploadWithBatch(rawData)
     : await uploadIndividually(rawData);
@@ -170,17 +167,17 @@ async function uploadOffair() {
   const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
   console.log("\n" + "=".repeat(50));
-  console.log("🎉 Upload Complete!");
+  console.log("🎉 Recap VC Upload Complete!");
   console.log(`✅ Successfully uploaded: ${totalUploaded}`);
   console.log(`❌ Failed: ${totalFailed}`);
-  console.log(`⏱️  Duration: ${duration}s`);
+  console.log(`⏱️ Duration: ${duration}s`);
   console.log("=".repeat(50));
 
   process.exit(0);
 }
 
-// Run the upload
-uploadOffair().catch(err => {
+// ✅ Execute the upload
+uploadRecapVC().catch((err) => {
   console.error("❌ Unexpected error:", err);
   process.exit(1);
 });

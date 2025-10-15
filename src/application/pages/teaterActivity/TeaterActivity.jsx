@@ -6,8 +6,8 @@ const TeaterActivity = () => {
   const navigate = useNavigate();
 
   const activities = [
-    { src: "src/assets/TeaterActivity/cathy-show.jpeg", title: "Jadwal Teater Show", link: "https://example.com/teater" },
-    { src: "src/assets/TeaterActivity/cathy-videocall.jpeg", title: "Jadwal Video Call", link: "https://example.com/videocall" },
+    { src: "src/assets/TeaterActivity/cathy-show.jpeg", title: "Jadwal Teater Show", link: "/theaterDetail" },
+    { src: "src/assets/TeaterActivity/cathy-videocall.jpeg", title: "Jadwal Video Call", link: "/recap-VC" },
     { src: "src/assets/TeaterActivity/cathy-mng.jpg", title: "Jadwal Meet and Greet", link: "https://example.com/mng" },
     { src: "src/assets/TeaterActivity/cathy-2s.jpg", title: "Jadwal 2Shot", link: "https://example.com/2shot" },
     { src: "src/assets/TeaterActivity/cathy-ofc.jpeg", title: "Jadwal OFC Event", link: "https://example.com/ofc" },
