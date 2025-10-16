@@ -5,6 +5,7 @@ import TheaterDetail from "./application/pages/TheaterDetail/TheaterDetail";
 import TeaterActivity from "./application/pages/teaterActivity/TeaterActivity";
 import RecapOffAir from "./application/pages/teaterActivity/RecapShow/RecapOffAir";
 import RecapVC from "./application/pages/teaterActivity/RecapVC/RecapVC";
+import AdminPage from "./application/pages/AdminPage/AdminPage";
 
 function AppRoutes() {
   return (
@@ -15,6 +16,8 @@ function AppRoutes() {
       <Route path="/recap-offair" element={<RecapOffAir />} />
       <Route path="/theaterDetail" element={<TheaterDetail />} />
       <Route path="/recap-VC" element={<RecapVC />} />
+      <Route path="/adminPage" element={<AdminPage />} />
+
 
     </Routes>
   );
