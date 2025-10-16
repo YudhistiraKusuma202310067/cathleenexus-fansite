@@ -1,0 +1,49 @@
+.theater-detail {
+  text-align: center;
+  padding: 80px 20px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.theater-title {
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.theater-date {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.member-card {
+  background: var(--color-muted);
+  border-radius: 12px;
+  padding: 12px 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #333;
+  font-weight: 600;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading & Error */
+.theater-loading,
+.theater-error {
+  text-align: center;
+  padding: 120px 20px;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}

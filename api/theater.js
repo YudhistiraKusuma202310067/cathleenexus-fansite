@@ -1,4 +1,14 @@
 export default async function handler(req, res) {
+  // Tambah header CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Handle preflight (OPTIONS)
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   try {
     const target = "https://jkt48.com/calendar/list?lang=id";
     const jinaUrl = "https://r.jina.ai/" + encodeURIComponent(target);
