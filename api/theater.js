@@ -6,15 +6,16 @@ export default async function handler(req, res) {
     const response = await fetch(jinaUrl);
     const text = await response.text();
 
-    // Ambil semua link show (regex sederhana)
-    const regex = /\/theater\/schedule\/id\/(\d+)[^>]*>([^<]+)<\/a>/g;
+    // Regex baru untuk format markdown [judul](https://jkt48.com/theater/schedule/id/XXXX?lang=id)
+    const regex = /\[([^\]]+)\]\(https:\/\/jkt48\.com\/theater\/schedule\/id\/(\d+)\?lang=id\)/g;
     const shows = [];
     let match;
+
     while ((match = regex.exec(text)) !== null) {
       shows.push({
-        id: match[1],
-        title: match[2].trim(),
-        url: `https://jkt48.com/theater/schedule/id/${match[1]}?lang=id`
+        id: match[2],
+        title: match[1].trim(),
+        url: `https://jkt48.com/theater/schedule/id/${match[2]}?lang=id`
       });
     }
 
