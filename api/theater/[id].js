@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 
 export default async function handler(req, res) {
@@ -9,9 +8,11 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Fetch langsung dari situs JKT48
     const response = await fetch(`https://jkt48.com/theater/schedule/id/${id}?lang=id`);
     const html = await response.text();
 
+    // Load HTML pakai cheerio
     const $ = cheerio.load(html);
     const members = [];
 
@@ -21,9 +22,13 @@ export default async function handler(req, res) {
 
     const showTitle = $("h2").first().text().trim();
 
-    res.status(200).json({ id, title: showTitle, members });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Gagal ambil performing member" });
+    res.status(200).json({
+      id,
+      title: showTitle || "Tidak diketahui",
+      members,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Gagal mengambil performing member" });
   }
 }
