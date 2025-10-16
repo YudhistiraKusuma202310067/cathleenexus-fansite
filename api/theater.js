@@ -22,6 +22,10 @@ export default async function handler(req, res) {
     let match;
 
     while ((match = regex.exec(text)) !== null) {
+      // Cek apakah line mengandung icon.cat2.png (event)
+      const line = text.substring(match.index - 100, match.index + 200);
+      if (line.includes("icon.cat2.png")) continue; // 🚫 skip event
+      
       shows.push({
         id: match[2],
         title: match[1].trim(),
