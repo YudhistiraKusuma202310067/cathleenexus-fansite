@@ -1,91 +1,116 @@
 import { useEffect, useState } from "react";
+import UIScreenContainer from "../../components/UIScreenContainer/UIScreenContainer";
 
 export default function TheaterDetail() {
-  const [shows, setShows] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchAllDetails() {
+    const fetchData = async () => {
       try {
-        // 1️⃣ Ambil semua show ID dari API pertama
         const res = await fetch("https://cathleenexus-fansite.vercel.app/api/theater");
-        if (!res.ok) throw new Error("Gagal fetch list show");
-        const theaterList = await res.json();
+        const list = await res.json();
 
-        // 2️⃣ Loop ID dan fetch detail per show
-        const detailPromises = theaterList.map(async (show) => {
-          try {
-            const detailRes = await fetch(
-              `https://cathleenexus-fansite.vercel.app/api/theater/${show.id}`
-            );
-            if (!detailRes.ok) throw new Error(`Gagal fetch show ${show.id}`);
-            const detailData = await detailRes.json();
-            return detailData;
-          } catch (err) {
-            console.error(`Error show ${show.id}:`, err);
-            return null;
-          }
+        const details = await Promise.all(
+          list.map((item) =>
+            fetch(`https://cathleenexus-fansite.vercel.app/api/theater/${item.id}`)
+              .then((r) => r.json())
+              .catch(() => null)
+          )
+        );
+
+        const today = new Date();
+        const filtered = details.filter((d) => {
+          if (!d || !d.members) return false;
+
+          const hasCathleen = d.members.some((m) =>
+            m.toLowerCase().includes("cathleen nixie")
+          );
+
+          const dateMatch = d.showDate.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+          if (!dateMatch) return false;
+
+          const [_, day, month, year] = dateMatch;
+          const showDate = new Date(`${year}-${month}-${day}T00:00:00`);
+
+          return hasCathleen && showDate >= today;
         });
 
-        // 3️⃣ Tunggu semua selesai
-        const details = await Promise.all(detailPromises);
-        const validDetails = details.filter((d) => d !== null);
+        filtered.sort((a, b) => {
+          const da = new Date(a.showDate);
+          const db = new Date(b.showDate);
+          return da - db;
+        });
 
-        setShows(validDetails);
-      } catch (err) {
-        console.error(err);
-        setError(err.message);
+        setData(filtered);
+      } catch (error) {
+        console.error(error);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
-    fetchAllDetails();
+    fetchData();
   }, []);
 
-  if (loading) return <p>⏳ Mengambil data teater...</p>;
-  if (error) return <p>⚠️ Terjadi kesalahan: {error}</p>;
-  if (!shows.length) return <p>❌ Tidak ada data performing member.</p>;
-
   return (
-    <div style={{ padding: "2rem", textAlign: "center" }}>
-      <h2>Performing Member Theater JKT48</h2>
-      <table
-        style={{
-          width: "100%",
-          marginTop: "1rem",
-          borderCollapse: "collapse",
-          border: "1px solid #ccc",
-        }}
-      >
-        <thead style={{ background: "#f2f2f2" }}>
-          <tr>
-            <th style={{ border: "1px solid #ddd", padding: "8px" }}>Tanggal Show</th>
-            <th style={{ border: "1px solid #ddd", padding: "8px" }}>Setlist</th>
-            <th style={{ border: "1px solid #ddd", padding: "8px" }}>Performing Member</th>
-          </tr>
-        </thead>
-        <tbody>
-          {shows.map((show) => (
-            <tr key={show.id}>
-              <td style={{ border: "1px solid #ddd", padding: "8px" }}>{show.showDate}</td>
-              <td style={{ border: "1px solid #ddd", padding: "8px" }}>{show.setlist}</td>
-              <td style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>
-                {show.members && show.members.length > 0 ? (
-                  <ul style={{ margin: 0, paddingLeft: "1.5rem" }}>
+    <UIScreenContainer>
+      <div className="recapoffair-container">
+        <h1 className="recapoffair-title">🎭 Theater Schedule — Cathleen Nixie</h1>
+
+        {loading ? (
+          <p className="text-center text-[#ff6ea1] animate-pulse">
+            Memuat jadwal teater...
+          </p>
+        ) : data.length === 0 ? (
+          <p className="recapoffair-empty">
+            Belum ada jadwal teater mendatang untuk Cathleen 💭
+          </p>
+        ) : (
+          <div className="flex flex-col gap-6 mt-6">
+            {data.map((show) => (
+              <div
+                key={show.id}
+                className="w-full bg-white border border-pink-100 shadow-md hover:shadow-lg transition rounded-2xl p-6 sm:p-8"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#ff6ea1] mb-1">{show.setlist}</h3>
+                    <p className="text-gray-600">📅 {show.showDate}</p>
+                  </div>
+
+                  <a
+                    href={`https://jkt48.com/theater/schedule/id/${show.id}?lang=id`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm color-[#433878] bg-[#ff6ea1] hover:bg-[#ff4e85] px-4 py-2 rounded-full shadow-sm transition"
+                  >
+                    🔗 Detail Show
+                  </a>
+                </div>
+
+                <div className="mt-4 border-t border-pink-100 pt-3">
+                  <p className="font-semibold text-gray-700 mb-2">Performing Members:</p>
+                  <div className="flex flex-wrap gap-2 overflow-x-auto">
                     {show.members.map((m, i) => (
-                      <li key={i}>{m}</li>
+                      <span
+                        key={i}
+                        className={`px-3 py-1 rounded-full text-sm ${
+                          m.toLowerCase().includes("cathleen nixie")
+                            ? "bg-[#ff6ea1]/20 text-[#ff6ea1] font-semibold"
+                            : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {m}
+                      </span>
                     ))}
-                  </ul>
-                ) : (
-                  <em>Belum ada data member</em>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </UIScreenContainer>
   );
 }
