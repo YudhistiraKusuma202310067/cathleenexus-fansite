@@ -32,11 +32,14 @@ const UIHeader = () => {
           <div className="ui-header__dropdown">
             <div className="ui-header__arrow" />
             <div className="ui-header__dropdown-content">
+              <UIText onClick={() => { navigate("/"); setMenuOpen(false); }}>
+                Home
+              </UIText>
               <UIText onClick={() => { navigate("/biodata"); setMenuOpen(false); }}>
                 Biodata
               </UIText>
               <UIText onClick={() => { navigate("/teaterActivity"); setMenuOpen(false); }}>
-                Teater Activity
+               Activity
               </UIText>
               <UIText onClick={() => { navigate("/contact"); setMenuOpen(false); }}>
                 Contact
@@ -48,14 +51,20 @@ const UIHeader = () => {
 
       {/* Desktop Navigation */}
       <nav className="ui-header__nav">
+
+         <UIText className="ui-header__link" onClick={() => navigate("/")}>
+         Home
+        </UIText>
+
         <UIText className="ui-header__link" onClick={() => navigate("/biodata")}>
           Biodata
         </UIText>
+
         <UIText
           className="ui-header__link"
           onClick={() => navigate("/teaterActivity")}
         >
-          Teater Activity
+         Activity
         </UIText>
         <UIText className="ui-header__link" onClick={() => navigate("/contact")}>
           Contact
