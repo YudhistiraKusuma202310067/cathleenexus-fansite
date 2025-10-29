@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UIScreenContainer from "../../components/UIScreenContainer/UIScreenContainer";
-import "./TheaterDetail.scss"; // ← Make sure to import your CSS file
+import "./TheaterDetail.scss";
 
 export default function TheaterDetail() {
   const [data, setData] = useState([]);
@@ -12,8 +12,12 @@ export default function TheaterDetail() {
         const res = await fetch("https://cathleenexus-fansite.vercel.app/api/theater");
         const list = await res.json();
 
+        // Hapus ID duplikat
+        const uniqueList = Array.from(new Map(list.map((item) => [item.id, item])).values());
+
+        // Fetch detail tiap ID
         const details = await Promise.all(
-          list.map((item) =>
+          uniqueList.map((item) =>
             fetch(`https://cathleenexus-fansite.vercel.app/api/theater/${item.id}`)
               .then((r) => r.json())
               .catch(() => null)
@@ -37,13 +41,33 @@ export default function TheaterDetail() {
           return hasCathleen && showDate >= today;
         });
 
+        // Urutkan dari yang paling dekat
         filtered.sort((a, b) => {
           const da = new Date(a.showDate);
           const db = new Date(b.showDate);
           return da - db;
         });
 
-        setData(filtered);
+        // Deteksi member ulang tahun
+        const processed = filtered.map((show) => {
+          const nameCount = {};
+          show.members.forEach((m) => {
+            nameCount[m] = (nameCount[m] || 0) + 1;
+          });
+
+          const birthdayMembers = Object.keys(nameCount).filter(
+            (m) => nameCount[m] > 1
+          );
+
+          // Hapus duplikat dari daftar tampil
+          const uniqueMembers = show.members.filter(
+            (m, index, self) => self.indexOf(m) === index
+          );
+
+          return { ...show, members: uniqueMembers, birthdayMembers };
+        });
+
+        setData(processed);
       } catch (error) {
         console.error(error);
       } finally {
@@ -66,7 +90,7 @@ export default function TheaterDetail() {
             Belum ada jadwal teater mendatang untuk Cathleen 💭
           </p>
         ) : (
-          <table className="theater-table" >
+          <table className="theater-table">
             <thead>
               <tr>
                 <th>Tanggal</th>
@@ -81,18 +105,31 @@ export default function TheaterDetail() {
                   <td>{show.showDate}</td>
                   <td>{show.setlist}</td>
                   <td>
-                    {show.members.map((m, i) => (
-                      <span
-                        key={i}
-                        className={`member-tag ${
-                          m.toLowerCase().includes("cathleen nixie")
-                            ? "highlight"
-                            : ""
-                        }`}
-                      >
-                        {m}
-                      </span>
-                    ))}
+                    <div className="member-list">
+                      {show.members.map((m, i) => (
+                        <span
+                          key={i}
+                          className={`member-tag ${
+                            m.toLowerCase().includes("cathleen nixie")
+                              ? "highlight"
+                              : ""
+                          }`}
+                        >
+                          {m}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* 🎂 Birthday Section */}
+                    {show.birthdayMembers.length > 0 && (
+                      <div className="birthday-section mt-2">
+                        {show.birthdayMembers.map((bm, i) => (
+                          <span key={i} className="member-tag birthday">
+                            {bm} 🎂
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </td>
                   <td>
                     <a
