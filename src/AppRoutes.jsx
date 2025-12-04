@@ -7,7 +7,9 @@ import RecapOffAir from "./application/pages/teaterActivity/RecapShow/RecapOffAi
 import RecapVC from "./application/pages/teaterActivity/RecapVC/RecapVC";
 import AdminPage from "./application/pages/AdminPage/AdminPage";
 import RecapMNG from "./application/pages/teaterActivity/RecapMNG/RecapMNG";
-import Recap2s from "./application/pages/teaterActivity/Recap2s/Recap2s";
+import Recap2s from "./application/pages/teaterActivity/recap2s/recap2s";
+import NexusProject from "./application/pages/NexusProject/NexusProject";
+
 
 function AppRoutes() {
   return (
@@ -21,6 +23,8 @@ function AppRoutes() {
       <Route path="/adminPage" element={<AdminPage />} />
       <Route path="/RecapMNG" element={<RecapMNG/>} />
       <Route path="/Recap2s" element={<Recap2s/>} />
+      <Route path="/NexusProject" element={<NexusProject/>} />
+
 
 
     </Routes>

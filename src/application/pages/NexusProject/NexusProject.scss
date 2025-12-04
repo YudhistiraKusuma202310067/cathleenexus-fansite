@@ -1,0 +1,331 @@
+/* ===========================
+   ✅ CONTAINER
+=========================== */
+.nexusproject-container {
+  width: 100%;
+  padding: 80px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background: #ffffff;
+}
+
+/* ===========================
+   ✅ TABS
+=========================== */
+.nexusproject-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nexusproject-tab {
+  padding: 10px 22px;
+  border: 1.5px solid #cfcfcf;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #777;
+  transition: 0.2s ease;
+}
+
+.nexusproject-tab:hover {
+  border-color: #800000;
+  color: #800000;
+}
+
+.nexusproject-tab.active {
+  border: 2px solid #800000;
+  color: #800000;
+  font-weight: 600;
+}
+
+/* ===========================
+   ✅ CONTENT UTAMA
+=========================== */
+.nexusproject-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ✅ IMAGE MAIN */
+.nexusproject-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nexusproject-image {
+  width: 100%;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+/* ✅ TEXT MAIN */
+.nexusproject-text {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nexusproject-title {
+  position: relative;
+  font-size: 26px;
+  font-weight: 700;
+  padding-left: 16px;
+  color: #111;
+}
+
+.nexusproject-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 5px;
+  height: 24px;
+  background: #800000;
+  border-radius: 3px;
+}
+
+.nexusproject-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  white-space: pre-line;
+}
+
+/* ===========================
+   ✅ COMIC SECTION (ID 1)
+=========================== */
+.nexusproject-comic-section {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.nexusproject-comic-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #800000;
+  text-align: center;
+}
+
+.nexusproject-comic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.nexusproject-comic-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nexusproject-comic-image img {
+  width: 260px;
+  object-fit: contain;
+}
+
+.nexusproject-comic-text {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nexusproject-comic-text h4 {
+  font-size: 18px;
+  color: #800000;
+}
+
+.nexusproject-comic-text p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* =====================================================
+   ✅ ID 2 — STORY PROJECT
+===================================================== */
+.story-project-section {
+  max-width: 900px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.story-project-section h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #800000;
+}
+
+.story-project-section p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.story-project-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.story-project-image-wrapper img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.story-project-image-wrapper img:hover {
+  transform: scale(1.03);
+}
+
+/* ===========================
+   ✅ ID 3 — AVA PROJECT (GAMBAR DIKECILKAN)
+=========================== */
+.ava-project-section {
+  margin-top: 80px;
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 40px;
+  border-radius: 20px;
+  background: #fafafa;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.ava-project-section img {
+  width: 200px;   /* ✅ DIPERKECILKAN */
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.ava-project-section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 10px;
+}
+
+.ava-project-section p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  max-width: 460px;
+}
+
+/* ===========================
+   ✅ ID 2 — PROJECT FANS
+=========================== */
+.project-fans-section {
+  margin-top: 90px;
+  max-width: 1200px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.project-fans-section h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 40px;
+}
+
+.project-fans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+.project-fan-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.project-fan-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-fan-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.project-fan-card p {
+  padding: 14px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ===========================
+   ✅ RESPONSIVE ALL
+=========================== */
+@media (max-width: 900px) {
+  .nexusproject-container {
+    padding: 60px 20px;
+  }
+
+  .nexusproject-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .nexusproject-image {
+    max-width: 300px;
+  }
+
+  .nexusproject-title {
+    font-size: 22px;
+  }
+
+  .nexusproject-description {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .nexusproject-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .nexusproject-comic-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ava-project-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ava-project-section img {
+    width: 170px;  /* ✅ MOBILE LEBIH KECIL */
+  }
+
+  .project-fan-card img {
+    height: 220px;
+  }
+}
