@@ -67,7 +67,7 @@ const UIHeader = () => {
          Activity
         </UIText>
         <UIText className="ui-header__link" onClick={() => navigate("/contact")}>
-          Contact
+          Nexus Project
         </UIText>
       </nav>
 
