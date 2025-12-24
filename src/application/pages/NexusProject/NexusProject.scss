@@ -62,9 +62,57 @@
 
 .nexusproject-image {
   width: 100%;
-  max-width: 100px;
+  max-width: 420px; /* desktop */
+  height: auto;
   object-fit: contain;
 }
+@media (max-width: 600px) {
+  .nexusproject-tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nexusproject-tab {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .nexusproject-image {
+    max-width: 260px;
+  }
+
+  .nexusproject-title {
+    font-size: 20px;
+  }
+
+  .nexusproject-description {
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .nexusproject-comic-image img {
+    width: 200px;
+  }
+
+  .project-fan-card img {
+    height: 180px;
+  }
+}
+@media (max-width: 1024px) {
+  .nexusproject-content {
+    gap: 50px;
+  }
+
+  .nexusproject-image {
+    max-width: 340px;
+  }
+
+  .ava-project-section {
+    gap: 40px;
+    padding: 30px;
+  }
+}
+
 
 /* ✅ TEXT MAIN */
 .nexusproject-text {
@@ -329,3 +377,82 @@
     height: 220px;
   }
 }
+
+/* =========================== ✅ ID 4 — 100 SHOW PROJECT =========================== */
+
+.show100-section {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ROW */
+.show100-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* IMAGE — kecil & rapi */
+.show100-image {
+  flex: 0 0 55%;
+  display: flex;
+  justify-content: center;
+}
+
+.show100-image img {
+  width: 55%;
+  max-width: 380px;
+  height: auto;
+
+  object-fit: contain;   /* ❗ aman — tidak terpotong */
+  border-radius: 12px;   /* opsional */
+}
+
+/* TEXT — ruang sedikit lebih besar */
+.show100-content {
+  flex: 0 0 45%;
+}
+
+.show100-content h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #7a0000;
+  margin-bottom: 6px;
+}
+
+.show100-content p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #444;
+   white-space: pre-line; 
+}
+
+
+
+/* ======================= 📱 MOBILE ======================= */
+@media (max-width: 768px) {
+
+  .show100-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .show100-image {
+    flex: unset;
+  }
+
+  .show100-image img {
+    width: 75%;
+    max-width: 260px;   /* 🔹 lebih kecil di HP */
+  }
+
+  .show100-content {
+    flex: unset;
+  }
+}
+

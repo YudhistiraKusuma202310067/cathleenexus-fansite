@@ -41,8 +41,8 @@ const UIHeader = () => {
               <UIText onClick={() => { navigate("/teaterActivity"); setMenuOpen(false); }}>
                Activity
               </UIText>
-              <UIText onClick={() => { navigate("/contact"); setMenuOpen(false); }}>
-                Contact
+              <UIText onClick={() => { navigate("/NexusProject"); setMenuOpen(false); }}>
+                Nexus Project
               </UIText>
             </div>
           </div>

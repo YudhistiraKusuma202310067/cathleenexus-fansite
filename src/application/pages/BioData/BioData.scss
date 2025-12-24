@@ -166,3 +166,50 @@
     }
   }
 }
+@media (max-width: 1024px) {
+  .nexusproject-content {
+    gap: 50px;
+  }
+
+  .nexusproject-image {
+    max-width: 340px;
+  }
+
+  .ava-project-section {
+    gap: 40px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nexusproject-tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nexusproject-tab {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .nexusproject-image {
+    max-width: 260px;
+  }
+
+  .nexusproject-title {
+    font-size: 20px;
+  }
+
+  .nexusproject-description {
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .nexusproject-comic-image img {
+    width: 200px;
+  }
+
+  .project-fan-card img {
+    height: 180px;
+  }
+}
