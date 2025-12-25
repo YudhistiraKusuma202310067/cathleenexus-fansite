@@ -18,14 +18,34 @@ const RecapVC = () => {
         // 🗓️ Parse date string like "Sabtu, 20 Mei 2023"
         const parseDate = (str) => {
           const monthMap = {
-            // 🇮🇩 Indonesian months
-            Januari: 0, Februari: 1, Maret: 2, April: 3, Mei: 4, Juni: 5,
-            Juli: 6, Agustus: 7, September: 8, Oktober: 9, November: 10, Desember: 11,
+                    // 🇮🇩 Indonesian
+                    Januari: 0,
+                    Februari: 1,
+                    Maret: 2,
+                    April: 3,
+                    Mei: 4,
+                    Juni: 5,
+                    Juli: 6,
+                    Agustus: 7,
+                    September: 8,
+                    Oktober: 9,
+                    November: 10,
+                    Desember: 11,
 
-            // 🇬🇧 English months
-            January: 0, February: 1, March: 2, May: 4, June: 5,
-            July: 6, August: 7, October: 9, December: 11,
-          };
+                    // 🇬🇧 English
+                    January: 0,
+                    February: 1,
+                    March: 2,
+                    April: 3,
+                    May: 4,
+                    June: 5,
+                    July: 6,
+                    August: 7,
+                    September: 8,
+                    October: 9,
+                    November: 10,
+                    December: 11,
+                  };
 
 
           try {

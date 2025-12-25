@@ -32,9 +32,35 @@ const Recap2s = () => {
             if (str.includes("-")) {
               const [day, monthStr, yearStr] = str.split("-");
               const monthMap = {
-                Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
-                Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+                // 🇮🇩 Indonesian
+                Januari: 0,
+                Februari: 1,
+                Maret: 2,
+                April: 3,
+                Mei: 4,
+                Juni: 5,
+                Juli: 6,
+                Agustus: 7,
+                September: 8,
+                Oktober: 9,
+                November: 10,
+                Desember: 11,
+
+                // 🇬🇧 English
+                January: 0,
+                February: 1,
+                March: 2,
+                April: 3,
+                May: 4,
+                June: 5,
+                July: 6,
+                August: 7,
+                September: 8,
+                October: 9,
+                November: 10,
+                December: 11,
               };
+
               const month = monthMap[monthStr.substring(0, 3)];
               const fullYear = yearStr.length === 2 ? `20${yearStr}` : yearStr;
               return new Date(fullYear, month, parseInt(day));
