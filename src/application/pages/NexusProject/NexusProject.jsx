@@ -147,8 +147,76 @@ const PROJECTS = [
       image: "https://pbs.twimg.com/media/Gc1UrFVboAAwOne?format=jpg&name=small",
       text: "Izinkan kami untuk mengganti encore di pertunjukan Renai Kinshi Jourei pada tanggal 21 November 2024 menjadi:\n• Cathy seratus show\n• Beginning of Ascending"
     },
+   
   ],
+  
+
+  
 },
+ {
+      id: 5,
+      tab: "CathleenThings",
+      title: "Cathleen's Things: The Upside Down",
+      description: "Cathleen Things adalah kumpulan project ulang tahun ke-16 untuk @N_CathyJKT48 yang dibuat sebagai bentuk cinta, apresiasi, dan dukungan dari para penggemar. Project ini merangkum berbagai hal kecil namun bermakna yang merepresentasikan Cathleen—mulai dari kepribadiannya yang hangat, ceria, dan penuh semangat, hingga momen-momen berharga yang ia ciptakan bersama fans selama perjalanannya di JKT48.\n \nMelalui Cathleen Things, kami ingin menghadirkan kenangan, pesan, dan karya yang mencerminkan betapa berharganya Cathleen bagi banyak orang. Setiap detail dalam project ini dibuat dengan penuh ketulusan, sebagai simbol rasa terima kasih atas senyum, kerja keras, dan inspirasi yang selalu Cathleen berikan.\n\nDi usia ke-16 ini, semoga Cathleen semakin bersinar, terus mengejar impian, dan selalu dikelilingi oleh hal-hal baik serta orang-orang yang mendukungnya. Cathleen Things bukan hanya sebuah project ulang tahun, tetapi juga wujud kasih sayang yang akan selalu menyertai langkah Cathleen ke depannya. 💙✨",
+      image: "https://pbs.twimg.com/media/GsAUwPxXEAEQu5k?format=jpg&name=4096x4096", // Ganti dengan URL gambar utama
+
+      comics: [
+        {
+          image: "https://pbs.twimg.com/media/Gr9hDMfXgAA7Nn3?format=jpg&name=4096x4096",
+          title: "Chapter 1: Pintu Misteri di Hawkins",
+          text: "Cathy mulai menyadari ada sesuatu yang aneh di Hawkins. Beberapa kejadian misterius mulai terjadi, seolah ada dunia tersembunyi yang belum ia ketahui. Saat mencari jawaban, ia menemukan sebuah pintu misterius yang diyakini sebagai kunci menuju sesuatu yang lebih besar. Namun, pintu itu bukan hanya sekadar jalan masuk, melainkan sebuah simbol dari perubahan besar yang akan Cathy hadapi. 💬 Apa yang ada di balik pintu ini? Dan kenapa rasanya seperti ada yang memanggilku?"
+        },
+        {
+          image: "https://pbs.twimg.com/media/Gr9hKscWIAA4Kyw?format=jpg&name=4096x4096",
+          title: "Chapter 2: Memasuki Upside Down ",
+          text: "Saat Cathy melewati pintu misterius, ia terjebak dalam dunia yang tidak ia kenal, yaitu dunia Upside Down. Kota Hawkins yang biasa ia lihat kini berubah menjadi suram, penuh teka-teki, dan ketidakpastian. Setiap langkah yang ia ambil mengujinya untuk berpikir kritis, berani menghadapi ketakutan, dan menemukan petunjuk yang tersembunyi. 💬 Dunia ini seperti bayangan dari kenyataan... Apakah aku bisa keluar dari sini??"
+        },
+        {
+          image: "https://pbs.twimg.com/media/Gr9hRGJWkAAgM83?format=jpg&name=4096x4096",
+          title: "Chapter 3: Menuju Dunia Baru ",
+          text: "Setelah berjuang menghadapi berbagai tantangan, Cathy akhirnya menemukan jawabannya. Ia menyadari bahwa setiap tantangan dalam hidup adalah teka-teki yang harus dipecahkan. Dengan keberanian, ketelitian, dan kerja keras, Cathy berhasil membuka jalan keluar dan melangkah menuju masa depan yang lebih baik.💬 Misteri ini bukan hanya tentang Hawkins, tetapi juga tentang perjalanan hidupku."
+        }
+      ],
+
+      avaHeader: {
+        title: "Cathleen Nixie's Online Birthday Project",
+        desc: "Mari rayakan ulang tahun Cathleen dengan menggunakan avatar dan header spesial ini! Tunjukkan dukunganmu dengan mengganti profile picture dan header di media sosialmu.",
+        ava: "https://pbs.twimg.com/media/Gr9oaHsX0AAEPEr?format=jpg&name=large",
+        header: "https://pbs.twimg.com/media/Gr9obZjXMAA6ldE?format=jpg&name=large"
+      },
+
+      videotron: [
+        {
+          lokasi: "Tunjungan Plaza - Surabaya",
+          jam: "28 Mei 2025, mulai pukul 06.00 - 00.00 WIB ",
+          image: "https://pbs.twimg.com/media/Gr9rkTIWkAAt5rp?format=jpg&name=large"
+        }
+      ],
+
+      tcgFanart: {
+        title: "Online TCG Fanart Collection",
+        desc: "Project fan art Cathy TCG ✨Kami menghadirkan konsep unik yang memadukan foto Cathy JKT48 dengan elemen Pokémon dalam gaya kartu Trading Card Game (TCG).Seluruh desain merupakan karya dari salah satu fans Cathy, yang didukung penuh oleh Cathleenexus sebagai bentuk apresiasi",
+        images: [
+          "https://pbs.twimg.com/media/Gr9tFEQXQAA_2h-?format=jpg&name=4096x4096",
+          "https://pbs.twimg.com/media/Gr9tF3kXIAAdiXw?format=jpg&name=4096x4096",
+          "https://pbs.twimg.com/media/Gr9tGsWWAAAc6yf?format=jpg&name=4096x4096",
+          "https://pbs.twimg.com/media/Gr9tHyMWgAEyHWH?format=jpg&name=4096x4096"
+        ]
+      },
+
+      photobooth: {
+        title: "Photobooth Palette - FX Sudirman",
+        image: "https://pbs.twimg.com/media/Gr9vg0nWsAA4poP?format=jpg&name=900x900",
+         desc: "Karena setiap momen berharga harus dikenang. Maka dari itu, kami menghadirkan Cathleen Things Photobooth Event yang dapat kalian kunjungi di @palette__id, FX Sudirman dan SMYD, Blok M Square.\n\nUntuk kalian yang berkunjung ke kawasan FX Sudirman dan Blok M Square, jangan lewatkan kesempatan mengabadikan momen bersama teman di Photobooth Palette & SMYD dengan template \"Cathleen Things\" dari kami.\n\n📅 28 Mei 2025 - 28 Juni 2025\n📍 Pallete, FX Sudirman, Jakarta Pusat (Lantai F4)\n📍 SMYD, Blok M Square, Jakarta Selatan (Lantai UG)"
+      },
+
+      specialSong: {
+        title: "Special Song for Cathleen",
+        image: "https://pbs.twimg.com/media/Gr-PZu9WIAA1_7Y?format=jpg&name=large",
+        link: "https://www.youtube.com/watch?v=0FDq5WsQB20",
+        desc: "Ketika kata-kata tak lagi sanggup menggambarkan cantiknya si peri kecil , maka biarkanlah musik yang berbicara, mengalun pelan menyampaikan rasa, yang tak sempat terucap lewat lisan."
+      }
+        },
 
 
 
@@ -166,13 +234,14 @@ const NexusProject = () => {
   return (
     <UIScreenContainer>
       <div className="nexusproject-container">
-
-        {/* ✅ TABS */}
+        {/* Tabs */}
         <div className="nexusproject-tabs">
           {PROJECTS.map((project) => (
             <button
               key={project.id}
-              className={`nexusproject-tab ${activeTab === project.id ? "active" : ""}`}
+              className={`nexusproject-tab ${
+                activeTab === project.id ? "active" : ""
+              }`}
               onClick={() => setActiveTab(project.id)}
             >
               {project.tab}
@@ -180,7 +249,7 @@ const NexusProject = () => {
           ))}
         </div>
 
-        {/* ✅ MAIN CONTENT */}
+        {/* Main Content */}
         <div className="nexusproject-content">
           <div className="nexusproject-image-wrapper">
             <img
@@ -198,9 +267,7 @@ const NexusProject = () => {
           </div>
         </div>
 
-        {/* =========================
-            ✅ ID 1 → COMIC
-        ========================= */}
+        {/* ID 1 — Comic */}
         {activeProject.id === 1 && activeProject.comics && (
           <div className="nexusproject-comic-section">
             <h3 className="nexusproject-comic-title">Comic Gallery</h3>
@@ -222,21 +289,24 @@ const NexusProject = () => {
           </div>
         )}
 
-        {/* =========================
-            ✅ ID 2 → STORY + AVA + FANS
-        ========================= */}
+        {/* ID 2 — Story + Ava + Fans */}
         {activeProject.id === 2 && (
           <>
             <div className="story-project-section">
               <h3>Story Project</h3>
               <p>{activeProject.storyProject.text}</p>
+
               <div className="story-project-image-wrapper">
-                <img src={activeProject.storyProject.image} alt="Story" />
+                <img
+                  src={activeProject.storyProject.image}
+                  alt="Story"
+                />
               </div>
             </div>
 
             <div className="ava-project-section">
               <img src={activeProject.ava.image} alt="Ava" />
+
               <div>
                 <h3>{activeProject.ava.name}</h3>
                 <p>{activeProject.ava.desc}</p>
@@ -245,6 +315,7 @@ const NexusProject = () => {
 
             <div className="project-fans-section">
               <h3>Project</h3>
+
               <div className="project-fans-grid">
                 {activeProject.fans.map((fan, index) => (
                   <div key={index} className="project-fan-card">
@@ -257,66 +328,148 @@ const NexusProject = () => {
           </>
         )}
 
-        {/* =========================
-            ✅ ID 3 → DONATION
-        ========================= */}
+        {/* ID 3 — Donation Timeline Elegan */}
         {activeProject.id === 3 && activeProject.donation && (
-          <div className="donation-section">
+          <div className="donation-timeline">
+            {Object.entries(activeProject.donation).map(
+              ([key, item], index) => (
+                <div
+                  key={index}
+                  className={`donation-card ${index % 2 === 0 ? "left" : "right"}`}
+                >
+                  <div className="donation-image">
+                    <img src={item.image} alt={key} />
+                  </div>
 
-          
-
-            <div className="donation-row">
-              <img src={activeProject.donation.tahap1.image} alt="Tahap 1" />
-              <div className="donation-text">
-                <h4>Donasi Tahap 1</h4>
-                <p>{activeProject.donation.tahap1.text}</p>
-              </div>
-            </div>
-
-            <div className="donation-row">
-              <img src={activeProject.donation.tahap2.image} alt="Tahap 2" />
-              <div className="donation-text">
-                <h4>Donasi Tahap 2</h4>
-                <p>{activeProject.donation.tahap2.text}</p>
-              </div>
-            </div>
-
-            <div className="donation-row">
-              <img src={activeProject.donation.tahap3.image} alt="Tahap 3" />
-              <div className="donation-text">
-                <h4>Donasi Tahap 3</h4>
-                <p>{activeProject.donation.tahap3.text}</p>
-              </div>
-            </div>
-
+                  <div className="donation-info">
+                    <h4>{`Donasi ${key.replace("tahap", "Tahap ")}`}</h4>
+                    <p>{item.text}</p>
+                  </div>
+                </div>
+              )
+            )}
           </div>
-        )
-        }
-      {/* =========================
-    ✅ ID 4 → 100 SHOW PROJECT
-========================= */}
-{activeProject.id === 4 && activeProject.sections && (
-  <div className="show100-section">
-    {activeProject.sections.map((section, index) => (
-      <div key={index} className="show100-row">
-        
-        <div className="show100-image">
-          <img src={section.image} alt={section.title} />
-        </div>
-
-        <div className="show100-content">
-          <h4>{section.title}</h4>
-          <p>{section.text}</p>
-        </div>
-
-      </div>
-    ))}
-  </div>
-)}
+        )}
 
 
+       {/* ID 4 — 100 Show Project (Elegant Card Layout) */}
+        {activeProject.id === 4 && activeProject.sections && (
+          <div className="show100-grid">
+            {activeProject.sections.map((section, index) => (
+              <div key={index} className="show100-card">
+                <div className="show100-card-image">
+                  <img src={section.image} alt={section.title} />
+                </div>
 
-        
+                <div className="show100-card-body">
+                  <h4>{section.title}</h4>
+                  <p>{section.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        {/* ID 5 — CathleenThings Project */}
+        {activeProject.id === 5 && (
+          <>
+            {/* Comic Section */}
+            {activeProject.comics && (
+              <div className="nexusproject-comic-section">
+                <h3 className="nexusproject-comic-title">Comic Story</h3>
+                <div className="nexusproject-comic-list">
+                  {activeProject.comics.map((comic, index) => (
+                    <div key={index} className="nexusproject-comic-row">
+                      <div className="nexusproject-comic-image">
+                        <img src={comic.image} alt={comic.title} />
+                      </div>
+                      <div className="nexusproject-comic-text">
+                        <h4>{comic.title}</h4>
+                        <p>{comic.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Ava & Header Section */}
+            {activeProject.avaHeader && (
+              <div className="ava-header-section">
+                <h3>{activeProject.avaHeader.title}</h3>
+                <p>{activeProject.avaHeader.desc}</p>
+                <div className="ava-header-grid">
+                  <div className="ava-header-item">
+                    <img src={activeProject.avaHeader.ava} alt="Avatar" />
+                    <h4>Avatar</h4>
+                  </div>
+                  <div className="ava-header-item">
+                    <img src={activeProject.avaHeader.header} alt="Header" />
+                    <h4>Header</h4>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Videotron Section */}
+            {activeProject.videotron && (
+              <div className="videotron-section">
+                <h3>Videotron Project</h3>
+                <div className="videotron-grid">
+                  {activeProject.videotron.map((vt, index) => (
+                    <div key={index} className="videotron-card">
+                      <img src={vt.image} alt={vt.lokasi} />
+                      <div className="videotron-info">
+                        <h4>{vt.lokasi}</h4>
+                        <p>{vt.jam}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* TCG Fanart Section */}
+            {activeProject.tcgFanart && (
+              <div className="tcg-fanart-section">
+                <h3>{activeProject.tcgFanart.title}</h3>
+                <p>{activeProject.tcgFanart.desc}</p>
+                <div className="tcg-fanart-grid">
+                  {activeProject.tcgFanart.images.map((img, index) => (
+                    <div key={index} className="tcg-fanart-item">
+                      <img src={img} alt={`TCG Fanart ${index + 1}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Photobooth Section */}
+            {activeProject.photobooth && (
+              <div className="photobooth-section">
+                <h3>{activeProject.photobooth.title}</h3>
+                <img src={activeProject.photobooth.image} alt="Photobooth" />
+                <p>{activeProject.photobooth.desc}</p>
+              </div>
+            )}
+
+            {/* Special Song Section */}
+            {activeProject.specialSong && (
+              <div className="special-song-section">
+                <h3>{activeProject.specialSong.title}</h3>
+                <img src={activeProject.specialSong.image} alt="Special Song" />
+                <p>{activeProject.specialSong.desc}</p>
+                <a 
+                  href={activeProject.specialSong.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="song-link-button"
+                >
+                  🎵 Dengarkan Sekarang
+                </a>
+              </div>
+            )}
+          </>
+        )}
 
       </div>
     </UIScreenContainer>

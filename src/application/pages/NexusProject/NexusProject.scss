@@ -1,315 +1,204 @@
-/* ===========================
-   ✅ CONTAINER
-=========================== */
-.nexusproject-container {
-  width: 100%;
-  padding: 80px 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  background: #ffffff;
+/* =========================
+   🎯 BASE & THEME
+========================= */
+:root {
+  --red: #7a0000;
+  --text: #222;
+  --muted: #555;
+  --soft: #f6f6f6;
+  --card: #ffffff;
+
+  --radius: 16px;
+  --shadow: 0 14px 40px rgba(0,0,0,.09);
 }
 
-/* ===========================
-   ✅ TABS
-=========================== */
+/* Container Utama */
+.nexusproject-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(32px, 4vw, 80px) clamp(16px, 4vw, 120px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 60px);
+  background: #fff;
+}
+
+/* =========================
+   🔖 TABS
+========================= */
 .nexusproject-tabs {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 12px;
 }
 
 .nexusproject-tab {
-  padding: 10px 22px;
-  border: 1.5px solid #cfcfcf;
-  background: transparent;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #d4d4d4;
+  background: #fff;
+  color: #666;
+  font-size: 14px;
   cursor: pointer;
-  color: #777;
-  transition: 0.2s ease;
+  transition: .25s ease;
 }
 
 .nexusproject-tab:hover {
-  border-color: #800000;
-  color: #800000;
+  border-color: var(--red);
+  color: var(--red);
 }
 
 .nexusproject-tab.active {
-  border: 2px solid #800000;
-  color: #800000;
+  border: 2px solid var(--red);
+  color: var(--red);
   font-weight: 600;
 }
 
-/* ===========================
-   ✅ CONTENT UTAMA
-=========================== */
+/* =========================
+   🧩 HERO CONTENT
+========================= */
 .nexusproject-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
-  gap: 80px;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: clamp(26px, 4vw, 70px);
 }
 
-/* ✅ IMAGE MAIN */
 .nexusproject-image-wrapper {
-  flex: 1;
   display: flex;
   justify-content: center;
 }
 
 .nexusproject-image {
   width: 100%;
-  max-width: 420px; /* desktop */
-  height: auto;
+  max-width: 420px;
   object-fit: contain;
 }
-@media (max-width: 600px) {
-  .nexusproject-tabs {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
 
-  .nexusproject-tab {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
-
-  .nexusproject-image {
-    max-width: 260px;
-  }
-
-  .nexusproject-title {
-    font-size: 20px;
-  }
-
-  .nexusproject-description {
-    font-size: 13.5px;
-    line-height: 1.7;
-  }
-
-  .nexusproject-comic-image img {
-    width: 200px;
-  }
-
-  .project-fan-card img {
-    height: 180px;
-  }
-}
-@media (max-width: 1024px) {
-  .nexusproject-content {
-    gap: 50px;
-  }
-
-  .nexusproject-image {
-    max-width: 340px;
-  }
-
-  .ava-project-section {
-    gap: 40px;
-    padding: 30px;
-  }
-}
-
-
-/* ✅ TEXT MAIN */
+/* Text Block */
 .nexusproject-text {
-  flex: 1.2;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .nexusproject-title {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 800;
+  color: var(--text);
   position: relative;
-  font-size: 26px;
-  font-weight: 700;
-  padding-left: 16px;
-  color: #111;
+  padding-left: 14px;
 }
 
 .nexusproject-title::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 6px;
-  width: 5px;
-  height: 24px;
-  background: #800000;
-  border-radius: 3px;
+  inset: 6px auto auto 0;
+  width: 4px;
+  height: 22px;
+  border-radius: 4px;
+  background: var(--red);
 }
 
 .nexusproject-description {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #444;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: clamp(13px, 1.2vw, 15px);
   white-space: pre-line;
 }
 
-/* ===========================
-   ✅ COMIC SECTION (ID 1)
-=========================== */
-.nexusproject-comic-section {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+/* =========================
+   📚 SECTION CARD STYLE
+========================= */
+.section-card {
+  padding: clamp(18px, 3vw, 34px);
+  border-radius: var(--radius);
+  background: var(--soft);
+  box-shadow: var(--shadow);
 }
 
-.nexusproject-comic-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #800000;
-  text-align: center;
-}
-
+/* =========================
+   🎭 COMIC LIST
+========================= */
 .nexusproject-comic-list {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+  display: grid;
+  gap: 34px;
 }
 
 .nexusproject-comic-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
   align-items: center;
-  gap: 50px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .nexusproject-comic-image img {
-  width: 260px;
+  width: 100%;
   object-fit: contain;
 }
 
-.nexusproject-comic-text {
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .nexusproject-comic-text h4 {
+  color: var(--red);
   font-size: 18px;
-  color: #800000;
+  font-weight: 700;
 }
 
 .nexusproject-comic-text p {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #444;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
-/* =====================================================
-   ✅ ID 2 — STORY PROJECT
-===================================================== */
-.story-project-section {
-  max-width: 900px;
-  margin: 60px auto 0;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  text-align: center;
-}
-
-.story-project-section h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #800000;
-}
-
-.story-project-section p {
-  font-size: 15px;
-  line-height: 1.9;
-  color: #444;
-}
-
-.story-project-image-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
+/* =========================
+   🖼 STORY IMAGE
+========================= */
 .story-project-image-wrapper img {
   width: 100%;
   max-width: 520px;
-  border-radius: 12px;
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
-  transition: 0.3s ease;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: .25s ease;
 }
 
 .story-project-image-wrapper img:hover {
   transform: scale(1.03);
 }
 
-/* ===========================
-   ✅ ID 3 — AVA PROJECT (GAMBAR DIKECILKAN)
-=========================== */
+/* =========================
+   👤 AVA PROJECT
+========================= */
 .ava-project-section {
-  margin-top: 80px;
-  max-width: 1000px;
-  margin-inline: auto;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  padding: 40px;
-  border-radius: 20px;
-  background: #fafafa;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 26px;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
 }
 
 .ava-project-section img {
-  width: 200px;   /* ✅ DIPERKECILKAN */
-  border-radius: 16px;
+  width: 100%;
+  border-radius: 14px;
   object-fit: cover;
 }
 
-.ava-project-section h3 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #800000;
-  margin-bottom: 10px;
-}
-
-.ava-project-section p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #444;
-  max-width: 460px;
-}
-
-/* ===========================
-   ✅ ID 2 — PROJECT FANS
-=========================== */
-.project-fans-section {
-  margin-top: 90px;
-  max-width: 1200px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.project-fans-section h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #800000;
-  margin-bottom: 40px;
-}
-
+/* =========================
+   ⭐ FAN PROJECT GRID
+========================= */
 .project-fans-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 30px;
+  gap: 26px;
 }
 
 .project-fan-card {
-  background: #fff;
-  border-radius: 16px;
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: 0.3s ease;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: .25s ease;
 }
 
 .project-fan-card:hover {
@@ -318,141 +207,625 @@
 
 .project-fan-card img {
   width: 100%;
-  height: 260px;
+  height: 240px;
   object-fit: cover;
 }
 
-.project-fan-card p {
-  padding: 14px;
-  font-size: 14px;
-  color: #444;
-}
-
-/* ===========================
-   ✅ RESPONSIVE ALL
-=========================== */
-@media (max-width: 900px) {
-  .nexusproject-container {
-    padding: 60px 20px;
-  }
-
-  .nexusproject-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .nexusproject-image {
-    max-width: 300px;
-  }
-
-  .nexusproject-title {
-    font-size: 22px;
-  }
-
-  .nexusproject-description {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .nexusproject-text {
-    align-items: center;
-    text-align: center;
-  }
-
-  .nexusproject-comic-row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .ava-project-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .ava-project-section img {
-    width: 170px;  /* ✅ MOBILE LEBIH KECIL */
-  }
-
-  .project-fan-card img {
-    height: 220px;
-  }
-}
-
-/* =========================== ✅ ID 4 — 100 SHOW PROJECT =========================== */
-
-.show100-section {
-  max-width: 900px;
-  margin: 40px auto 0;
-  padding: 0 16px;
-
+/* =========================
+   💝 DONATION TIMELINE
+========================= */
+.donation-timeline {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
+  margin-top: 24px;
 }
 
-/* ROW */
-.show100-row {
+.donation-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #f7f7fa;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+.donation-card.right {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.donation-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.donation-info h4 {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.donation-info p {
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* =========================
+   💯 SHOW 100 — CARD LIST
+========================= */
+.show100-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.show100-card {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+  transition: transform .25s ease;
 }
 
-/* IMAGE — kecil & rapi */
-.show100-image {
-  flex: 0 0 55%;
+.show100-card:hover {
+  transform: translateY(-3px);
+}
+
+.show100-card-image {
+  flex: 0 0 32%;
   display: flex;
   justify-content: center;
 }
 
-.show100-image img {
-  width: 55%;
-  max-width: 380px;
-  height: auto;
-
-  object-fit: contain;   /* ❗ aman — tidak terpotong */
-  border-radius: 12px;   /* opsional */
+.show100-card-image img {
+  width: 85%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
-/* TEXT — ruang sedikit lebih besar */
-.show100-content {
-  flex: 0 0 45%;
+.show100-card-body {
+  padding: 16px 18px;
 }
 
-.show100-content h4 {
-  font-size: 18px;
-  font-weight: 800;
-  color: #7a0000;
+.show100-card-body h4 {
   margin-bottom: 6px;
+  font-weight: 700;
 }
 
-.show100-content p {
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: #444;
-   white-space: pre-line; 
+.show100-card-body p {
+  line-height: 1.6;
+  white-space: pre-line;
 }
 
+/* =========================================
+   📱 MOBILE — REDESIGN READABILITY MODE
+   Fokus: nyaman dibaca + tidak sesak
+========================================= */
+@media (max-width: 820px) {
 
+  .nexusproject-container {
+    padding: 24px 18px;
+    gap: 32px;
+  }
 
-/* ======================= 📱 MOBILE ======================= */
-@media (max-width: 768px) {
+  /* Judul lebih besar & jelas */
+  .nexusproject-title {
+    font-size: 20px;
+    padding-left: 10px;
+  }
 
-  .show100-row {
-    flex-direction: column;
+  .nexusproject-description {
+    font-size: 14.5px;
+    line-height: 1.9;
+  }
+
+  /* Tabs jadi scrollable agar tidak sempit */
+  .nexusproject-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .nexusproject-tab {
+    flex: 0 0 auto;
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  /* Hero jadi 1 kolom */
+  .nexusproject-content {
+    grid-template-columns: 1fr;
+    gap: 18px;
     text-align: center;
   }
 
-  .show100-image {
-    flex: unset;
+  .nexusproject-image {
+    max-width: 360px;
   }
 
-  .show100-image img {
-    width: 75%;
-    max-width: 260px;   /* 🔹 lebih kecil di HP */
+  .nexusproject-text {
+    gap: 10px;
   }
 
-  .show100-content {
-    flex: unset;
+  /* Section card terasa lebih lapang */
+  .section-card {
+    padding: 18px;
+    border-radius: 14px;
   }
 }
 
+/* =========================================
+   💬 CONTENT LIST — MODE VERTICAL MOBILE
+========================================= */
+@media (max-width: 720px) {
+
+  /* Comic Row — dari 2 kolom → card vertikal */
+  .nexusproject-comic-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .nexusproject-comic-image img {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  .nexusproject-comic-text h4 {
+    font-size: 16px;
+  }
+
+  .nexusproject-comic-text p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  /* AVA Project jadi stacked + lebih rapi */
+  .ava-project-section {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .ava-project-section img {
+    max-width: 140px;
+    margin-inline: auto;
+  }
+
+  /* Donation Timeline — fokus teks dulu */
+  .donation-card,
+  .donation-card.right {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .donation-info p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+}
+
+/* =========================================
+   💯 SHOW 100 — MOBILE FRIENDLY
+   (Stacked card — gambar di atas)
+========================================= */
+@media (max-width: 640px) {
+
+  .show100-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .show100-card-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .show100-card-image img {
+    width: 100%;
+    max-width: 280px;
+    max-height: 220px;
+  }
+
+  .show100-card-body {
+    padding: 6px 4px;
+  }
+
+  .show100-card-body h4 {
+    font-size: 15px;
+  }
+
+  .show100-card-body p {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+}
+
+/* =========================================
+   📱 SMALL PHONE (≤ 480px)
+   — Bigger text + breathing space
+========================================= */
+@media (max-width: 480px) {
+
+  .nexusproject-container {
+    padding: 20px 14px;
+  }
+
+  .nexusproject-title {
+    font-size: 19px;
+  }
+
+  .nexusproject-description,
+  .donation-info p,
+  .show100-card-body p {
+    font-size: 14.2px;
+    line-height: 2;
+  }
+
+  .nexusproject-tab {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+}
+/* =========================
+   🎨 ID 5 — CATHLEEN THINGS
+========================= */
+
+/* Ava & Header Section */
+.ava-header-section {
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.ava-header-section h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.ava-header-section > p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-size: clamp(13px, 1.2vw, 15px);
+}
+
+.ava-header-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.ava-header-item {
+  padding: 18px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.07);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.ava-header-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+.ava-header-item img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.ava-header-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+/* =========================
+   📺 VIDEOTRON SECTION
+========================= */
+.videotron-section {
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: var(--radius);
+  background: var(--soft);
+  box-shadow: var(--shadow);
+}
+
+.videotron-section h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.videotron-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(18px, 3vw, 28px);
+}
+
+.videotron-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transition: transform .25s ease;
+}
+
+.videotron-card:hover {
+  transform: translateY(-6px);
+}
+
+.videotron-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.videotron-info {
+  padding: 18px;
+  text-align: center;
+}
+
+.videotron-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.videotron-info p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* =========================
+   🎴 TCG FANART SECTION
+========================= */
+.tcg-fanart-section {
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: var(--shadow);
+}
+
+.tcg-fanart-section h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.tcg-fanart-section > p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  text-align: center;
+  font-size: clamp(13px, 1.2vw, 15px);
+}
+
+.tcg-fanart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.tcg-fanart-item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.tcg-fanart-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 28px rgba(0,0,0,.15);
+}
+
+.tcg-fanart-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+   📸 PHOTOBOOTH SECTION
+========================= */
+.photobooth-section {
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.photobooth-section h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.photobooth-section img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  transition: transform .25s ease;
+}
+
+.photobooth-section img:hover {
+  transform: scale(1.03);
+}
+
+.photobooth-section p {
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: clamp(13px, 1.2vw, 15px);
+  max-width: 700px;
+  margin-inline: auto;
+   white-space: pre-line;
+}
+
+/* =========================
+   🎵 SPECIAL SONG SECTION
+========================= */
+.special-song-section {
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--red) 0%, #a01010 100%);
+  box-shadow: var(--shadow);
+  text-align: center;
+  color: #fff;
+}
+
+.special-song-section h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.special-song-section img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+  transition: transform .25s ease;
+}
+
+.special-song-section img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.special-song-section p {
+  color: rgba(255,255,255,0.92);
+  line-height: 1.8;
+  font-size: clamp(13px, 1.2vw, 15px);
+  max-width: 650px;
+  margin-inline: auto;
+  margin-bottom: 24px;
+}
+
+.song-link-button {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  background: #fff;
+  color: var(--red);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+  transition: all .25s ease;
+}
+
+.song-link-button:hover {
+  background: #f8f8f8;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.3);
+}
+
+/* =========================================
+   📱 MOBILE — ID 5 RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  
+  /* Ava & Header Grid jadi 1 kolom */
+  .ava-header-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ava-header-item img {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  /* Videotron Grid responsif */
+  .videotron-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .videotron-card img {
+    height: 180px;
+  }
+
+  /* TCG Fanart 2 kolom di tablet */
+  .tcg-fanart-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .tcg-fanart-item img {
+    height: 240px;
+  }
+
+  /* Photobooth lebih compact */
+  .photobooth-section {
+    padding: 20px 16px;
+  }
+
+  .photobooth-section img {
+    max-width: 100%;
+  }
+
+  /* Special Song button lebih kecil */
+  .song-link-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  
+  .ava-header-section,
+  .videotron-section,
+  .tcg-fanart-section,
+  .photobooth-section,
+  .special-song-section {
+    padding: 18px 14px;
+  }
+
+  /* TCG jadi 1 kolom di hp kecil */
+  .tcg-fanart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tcg-fanart-item img {
+    height: 280px;
+  }
+
+  .special-song-section img {
+    max-width: 280px;
+  }
+
+  .song-link-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
